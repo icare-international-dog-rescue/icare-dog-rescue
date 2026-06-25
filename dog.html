@@ -69,7 +69,14 @@
   .head h1{font-size:clamp(30px,5vw,46px); font-weight:800}
   .specs{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px}
   .chip{font-size:13px; background:var(--panel); color:var(--ink-soft); padding:5px 11px; border-radius:8px}
-  .story{font-size:17px; color:#2C3A4D; margin-top:20px; max-width:64ch}
+  .facts{display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:10px; margin-top:18px}
+  .fact{background:#fff; border:1px solid var(--line); border-radius:12px; padding:13px 15px}
+  .fact .k{font-size:11px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-soft)}
+  .fact .v{font-size:16px; font-weight:600; color:var(--ink); margin-top:3px}
+  .fact .v.ok{color:var(--green)}
+  .note{display:flex; gap:8px; align-items:flex-start; margin-top:13px; font-size:13.5px; color:var(--ink-soft)}
+  .note b{color:var(--ink)}
+  .story{font-size:17px; color:#2C3A4D; margin-top:22px; max-width:64ch}
 
   .gallery{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:12px; margin-top:22px}
   .gallery img{width:100%; aspect-ratio:1; object-fit:cover; border-radius:12px; border:1px solid var(--line); cursor:zoom-in; transition:transform .15s}
@@ -198,9 +205,21 @@ function render(d){
   const isRescued = d.status==='rescued';
   const locs = Array.isArray(d.locations) ? d.locations.filter(Boolean) : [];
   const locBlock = locs.length
-    ? `<div class="loclabel"><span>📍</span>${isRescued?'Now in':'Available in'}</div>
+    ? `<div class="loclabel"><span>📍</span>${isRescued?'Now in':'Can be adopted to'}</div>
        <div class="pins">${locs.map(x=>`<span class="pin ${isRescued?'p-res':'p-av'}">${esc(x)}</span>`).join('')}</div>`
     : '';
+  function fact(k,v,ok){ return v ? `<div class="fact"><div class="k">${esc(k)}</div><div class="v${ok?' ok':''}">${esc(v)}</div></div>` : ''; }
+  const factsHtml = [
+    fact('Gender', d.gender),
+    fact('Age', d.age),
+    fact('Weight', d.weight),
+    fact('Breed', d.breed),
+    fact('Size', d.size),
+    fact('Microchipped', d.microchip, d.microchip==='Yes'),
+    fact('Sterilized', d.sterilized, d.sterilized==='Sterilized')
+  ].join('');
+  const factsBlock = factsHtml ? `<div class="facts">${factsHtml}</div>` : '';
+  const sterNote = `<div class="note"><span>🩺</span><span>We never rehome a dog before it's sterilized — <b>it's always done by us before they travel</b>, at no cost to you.</span></div>`;
   const volBlock = `<div class="vol-callout"><p>✈️ Many of our dogs reach their new homes thanks to travelling volunteers. If you have a trip coming up, you could help a dog fly. <a href="how.html">Learn how it works →</a></p></div>`;
   const applyBlock = isRescued
     ? `<div class="apply"><h2>${esc(d.name)} found a home ♥</h2>
@@ -217,11 +236,8 @@ function render(d){
       </div>
       ${!isRescued?`<a class="btn btn-primary" href="#apply">Apply to adopt ${esc(d.name)}</a>`:''}
     </div>
-    <div class="specs">
-      ${d.age?`<span class="chip">${esc(d.age)}</span>`:''}
-      ${d.breed?`<span class="chip">${esc(d.breed)}</span>`:''}
-      ${d.size?`<span class="chip">${esc(d.size)}</span>`:''}
-    </div>
+    ${factsBlock}
+    ${sterNote}
     ${locBlock}
     <p class="story">${esc(d.story||d.desc||'')}</p>
     ${gallery}
