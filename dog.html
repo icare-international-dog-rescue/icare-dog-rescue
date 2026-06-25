@@ -160,7 +160,8 @@
    thank-you without sending). Submissions go to that service, never to
    the GitHub repo.
    ========================================================================= */
-const FORM_ENDPOINT = "";
+const WEB3FORMS_KEY = "c3fccf10-c260-4b24-b2ec-a278ef9ca8a6";
+const FORM_ENDPOINT = WEB3FORMS_KEY ? "https://api.web3forms.com/submit" : "";
 
 const GRADIENTS = ["linear-gradient(135deg,#065EA5,#0A78C8)","linear-gradient(135deg,#DB5B33,#EE8A63)","linear-gradient(135deg,#054C84,#0A5BA0)","linear-gradient(135deg,#065EA5,#DB5B33)"];
 
@@ -269,6 +270,7 @@ function applyForm(d){
     <p class="lead">Thank you for considering ${esc(d.name)}. Adoption is a lifelong commitment — please take your time. We read every application personally.</p>
     <form onsubmit="submitApp(event,'${esc(d.name)}')">
       <input type="hidden" name="dog" value="${esc(d.name)}">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="frow">
         <div class="fieldset"><label class="q">Your name <span class="req">*</span></label><input type="text" name="name" required></div>
         <div class="fieldset"><label class="q">Email <span class="req">*</span></label><input type="email" name="email" required></div>
@@ -326,10 +328,15 @@ async function submitApp(e, name){
   if(FORM_ENDPOINT){
     btn.disabled=true; btn.textContent='Sending…';
     try{
-      const res = await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)});
-      if(!res.ok) throw 0;
+      const fd = new FormData(f);
+      fd.append('access_key', WEB3FORMS_KEY);
+      fd.append('subject', 'New application to adopt ' + name);
+      fd.append('from_name', 'iCARE Dog Rescue website');
+      const res = await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Accept':'application/json'},body:fd});
+      const data = await res.json().catch(function(){ return {}; });
+      if(!res.ok || !data.success) throw 0;
     }catch(err){ btn.disabled=false; btn.textContent='Send application for '+name;
-      alert('Something went wrong sending your application. Please try again, or email us directly.'); return; }
+      alert('Something went wrong sending your application. Please try again, or email us directly at icareinternationaldogrescue@gmail.com.'); return; }
   }
   document.getElementById('apply').innerHTML = `
     <div class="ok"><div class="tick">✓</div>
