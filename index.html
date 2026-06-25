@@ -231,6 +231,7 @@ async function loadDogs(){
 }
 function daysSince(d){ if(!d) return null; const ms=Date.now()-new Date(d).getTime(); return isNaN(ms)?null:Math.max(0,Math.floor(ms/86400000)); }
 function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function resolveSrc(p){ if(!p) return ''; if(/^https?:\/\//i.test(p)) return p; return String(p).replace(/^\/+/, ''); }
 function openProfile(id){ window.open('dog.html?id='+encodeURIComponent(id), '_blank', 'noopener'); }
 
 function render(){
@@ -238,10 +239,11 @@ function render(){
   const list = dogs.filter(d => filter==='all' || d.status===filter);
   grid.innerHTML = list.map((d,i)=>{
     const id = d.id||d.name;
-    const bg = d.photo
-      ? `background-image:url('${String(d.photo).replace(/'/g,"")}')`
+    const src = resolveSrc(d.photo);
+    const bg = src
+      ? `background-image:url('${src.replace(/'/g,"")}')`
       : `background:${GRADIENTS[i % GRADIENTS.length]}`;
-    const letter = d.photo ? '' : `<span class="ph-letter">${esc((d.name||'?')[0])}</span>`;
+    const letter = src ? '' : `<span class="ph-letter">${esc((d.name||'?')[0])}</span>`;
     const days = daysSince(d.since);
     const waiting = (d.status!=='rescued' && days!=null) ? `<span class="waiting">In our care ${days} day${days===1?'':'s'}</span>` : '';
     const featured = d.status==='available';
