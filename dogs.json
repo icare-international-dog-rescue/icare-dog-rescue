@@ -65,7 +65,13 @@
       "weight": "18 kg",
       "microchip": "No",
       "sterilized": "Sterilized",
-      "locations": [],
+      "locations": [
+        "Netherlands",
+        "Canada",
+        "France",
+        "Germany",
+        "Belgium"
+      ],
       "since": "2026-06-02",
       "photo": "/images/nuomi 22.jpg",
       "photos": [
