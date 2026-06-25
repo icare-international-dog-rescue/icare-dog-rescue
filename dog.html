@@ -125,6 +125,7 @@ const FALLBACK = [
 
 const STATUS_LABEL = {available:'Ready to adopt', healing:'Still healing', rescued:'Found a home', pending:'Pending'};
 function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function resolveSrc(p){ if(!p) return ''; if(/^https?:\/\//i.test(p)) return p; return String(p).replace(/^\/+/, ''); }
 function qid(){ const p=new URLSearchParams(location.search); return p.get('id'); }
 
 function ytEmbed(url){
@@ -144,11 +145,12 @@ async function load(){
 function render(d){
   const main = document.getElementById('main');
   if(!d){ main.innerHTML = '<div class="notfound">Sorry, we couldn\'t find that dog. <a href="index.html">See all dogs</a>.</div>'; return; }
-  const cover = d.photo ? `background-image:url('${String(d.photo).replace(/'/g,"")}')`
+  const cphoto = resolveSrc(d.photo);
+  const cover = cphoto ? `background-image:url('${cphoto.replace(/'/g,"")}')`
                         : `background:${GRADIENTS[0]}`;
-  const letter = d.photo ? '' : `<span class="ph-letter">${esc((d.name||'?')[0])}</span>`;
+  const letter = cphoto ? '' : `<span class="ph-letter">${esc((d.name||'?')[0])}</span>`;
   const photos = Array.isArray(d.photos)? d.photos.filter(Boolean):[];
-  const gallery = photos.length ? `<div class="gallery">${photos.map(p=>`<img src="${esc(p)}" alt="${esc(d.name)}">`).join('')}</div>` : '';
+  const gallery = photos.length ? `<div class="gallery">${photos.map(p=>`<img src="${esc(resolveSrc(p))}" alt="${esc(d.name)}">`).join('')}</div>` : '';
   let video = '';
   if(d.video){ const yt=ytEmbed(d.video);
     video = yt ? `<div class="video"><iframe src="${yt}" allowfullscreen></iframe></div>`
