@@ -4,6 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dog profile — iCARE International Dog Rescue</title>
+<meta name="description" content="Read this dog's story, see photos and video, and apply to adopt. iCARE rescues dogs and finds them safe, loving homes.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="iCARE International Dog Rescue">
+<meta property="og:title" content="Meet our rescue dogs · iCARE International Dog Rescue">
+<meta property="og:description" content="Read this dog's story, see photos and video, and apply to adopt.">
+<meta property="og:url" content="https://icare-international-dog-rescue.github.io/icare-dog-rescue/dog.html">
+<meta property="og:image" content="https://icare-international-dog-rescue.github.io/icare-dog-rescue/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -124,7 +134,7 @@ function ytEmbed(url){
 
 async function load(){
   let dogs;
-  try{ const r = await fetch('dogs.json',{cache:'no-store'}); if(!r.ok) throw 0; dogs = await r.json(); }
+  try{ const r = await fetch('dogs.json',{cache:'no-store'}); if(!r.ok) throw 0; var data = await r.json(); dogs = Array.isArray(data) ? data : (data.dogs || []); }
   catch(e){ dogs = FALLBACK; }
   const id = qid();
   const dog = dogs.find(d => String(d.id||d.name)===String(id)) || dogs[0];
@@ -170,6 +180,7 @@ function render(d){
     ${video}
     ${applyBlock}`;
   document.getElementById('yr').textContent = new Date().getFullYear();
+  if(d && d.name){ document.title = d.name + ' · iCARE International Dog Rescue'; }
   revealObserve(Array.prototype.slice.call(main.children));
 }
 
