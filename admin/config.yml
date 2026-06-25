@@ -30,6 +30,16 @@ collections:
               - { name: "age", label: "Age", widget: "string", required: false }
               - { name: "breed", label: "Breed / mix", widget: "string", required: false }
               - { name: "size", label: "Size", widget: "select", options: ["Small", "Medium", "Large"], required: false }
+              - { name: "gender", label: "Gender", widget: "select", options: ["Female", "Male"], required: false }
+              - { name: "weight", label: "Weight", widget: "string", required: false, hint: "e.g. 8 kg or 18 lb" }
+              - { name: "microchip", label: "Microchipped?", widget: "select", options: ["Yes", "No"], required: false }
+              - name: "sterilized"
+                label: "Sterilized"
+                widget: "select"
+                required: false
+                options:
+                  - { label: "Already sterilized", value: "Sterilized" }
+                  - { label: "Will be sterilized before travel", value: "Waiting to be sterilized" }
               - { name: "locations", label: "Locations (tags)", widget: "list", required: false, field: { name: "place", label: "Place", widget: "string" }, hint: "Add each place on its own line. For rescued dogs: where they now live (e.g. Stockholm, Sweden). For dogs still looking: where they can be adopted (e.g. Berlin, Germany)." }
               - { name: "since", label: "Arrival date", widget: "datetime", type: "date", format: "YYYY-MM-DD", required: false }
               - { name: "photo", label: "Cover photo", widget: "image", required: false, hint: "Main photo for the card and top of the profile." }
