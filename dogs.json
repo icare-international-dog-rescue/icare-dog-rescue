@@ -1,17 +1,22 @@
 {
   "dogs": [
     {
-      "id": "hope",
-      "name": "Hope",
-      "status": "available",
-      "age": "3 years",
-      "breed": "Shepherd mix",
-      "size": "Large",
-      "since": "2026-04-02",
-      "photo": "",
-      "photos": [],
+      "id": "Niik",
+      "name": "Niik",
+      "status": "rescued",
+      "age": "4 years",
+      "breed": "Mixed Breed",
+      "size": "Medium",
+      "since": "2022-11-18",
+      "photo": "/images/IMG_8716.jpeg",
+      "photos": [
+        "/images/IMG_1055.jpeg",
+        "/images/IMG_8716.jpeg",
+        "/images/IMG_9424.jpeg",
+        "/images/IMG_8560.jpeg"
+      ],
       "video": "",
-      "desc": "Found shivering in a storm drain, now the gentlest soul you'll meet.",
+      "desc": "Niik",
       "story": "When we found Hope she was hiding from the rain, too frightened to come out. Months of patience later, she leans her whole weight against you for cuddles and walks like a dream on the lead. She asks for very little — a warm spot, a slow walk, and someone to come home to."
     },
     {
