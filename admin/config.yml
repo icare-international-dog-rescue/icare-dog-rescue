@@ -30,7 +30,7 @@ collections:
               - { name: "age", label: "Age", widget: "string", required: false }
               - { name: "breed", label: "Breed / mix", widget: "string", required: false }
               - { name: "size", label: "Size", widget: "select", options: ["Small", "Medium", "Large"], required: false }
-              - { name: "since", label: "Arrival date", widget: "date", format: "YYYY-MM-DD", required: false }
+              - { name: "since", label: "Arrival date", widget: "datetime", type: "date", format: "YYYY-MM-DD", required: false }
               - { name: "photo", label: "Cover photo", widget: "image", required: false, hint: "Main photo for the card and top of the profile." }
               - { name: "photos", label: "More photos (gallery)", widget: "list", required: false, field: { name: "image", label: "Photo", widget: "image" } }
               - { name: "video", label: "Video link (YouTube or .mp4 URL)", widget: "string", required: false }
