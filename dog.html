@@ -77,6 +77,7 @@
   .note{display:flex; gap:8px; align-items:flex-start; margin-top:13px; font-size:13.5px; color:var(--ink-soft)}
   .note b{color:var(--ink)}
   .story{font-size:17px; color:#2C3A4D; margin-top:22px; max-width:64ch}
+  .story p{margin:0 0 14px} .story p:last-child{margin-bottom:0}
 
   .gallery{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:12px; margin-top:22px}
   .gallery img{width:100%; aspect-ratio:1; object-fit:cover; border-radius:12px; border:1px solid var(--line); cursor:zoom-in; transition:transform .15s}
@@ -171,6 +172,7 @@ const STATUS_LABEL = {available:'Ready to adopt', healing:'Still healing', rescu
 function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 function toggleMenu(){ var n=document.getElementById('navlinks'); var b=document.querySelector('.menu-btn'); var open=n.classList.toggle('open'); if(b) b.setAttribute('aria-expanded', open); }
 function resolveSrc(p){ if(!p) return ''; if(/^https?:\/\//i.test(p)) return p; return String(p).replace(/^\/+/, ''); }
+function paras(t){ var s=String(t==null?'':t); var out=s.split(/\n{2,}/).map(function(p){ return '<p>'+esc(p).replace(/\n/g,'<br>')+'</p>'; }).join(''); return out||'<p></p>'; }
 function qid(){ const p=new URLSearchParams(location.search); return p.get('id'); }
 
 function ytEmbed(url){
@@ -220,6 +222,7 @@ function render(d){
   ].join('');
   const factsBlock = factsHtml ? `<div class="facts">${factsHtml}</div>` : '';
   const sterNote = `<div class="note"><span>🩺</span><span>We never rehome a dog before it's sterilized — <b>it's always done by us before they travel</b>, at no cost to you.</span></div>`;
+  const chipNote = `<div class="note"><span>🆔</span><span>Every dog is microchipped before the flight — <b>it's required for international travel</b> — so this is always taken care of.</span></div>`;
   const volBlock = `<div class="vol-callout"><p>✈️ Many of our dogs reach their new homes thanks to travelling volunteers. If you have a trip coming up, you could help a dog fly. <a href="how.html">Learn how it works →</a></p></div>`;
   const applyBlock = isRescued
     ? `<div class="apply"><h2>${esc(d.name)} found a home ♥</h2>
@@ -238,8 +241,9 @@ function render(d){
     </div>
     ${factsBlock}
     ${sterNote}
+    ${chipNote}
     ${locBlock}
-    <p class="story">${esc(d.story||d.desc||'')}</p>
+    <div class="story">${paras(d.story||d.desc||'')}</div>
     ${gallery}
     ${video}
     ${volBlock}
