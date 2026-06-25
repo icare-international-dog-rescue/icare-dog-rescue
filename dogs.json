@@ -7,6 +7,9 @@
       "age": "3 years",
       "breed": "Street Dog Breed Mixed",
       "size": "Medium",
+      "locations": [
+        "Stockholm, Sweden"
+      ],
       "since": "2023-11-18",
       "photo": "/images/IMG_5248.jpeg",
       "photos": [
