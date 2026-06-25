@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+
+backend:
+  name: github
+  repo: icare-international-dog-rescue/icare-dog-rescue   # change if your owner/repo differs
+  branch: main
+
+# Photos uploaded in the editor are saved into an "images" folder in the repo.
+media_folder: "images"
+public_folder: "images"
+
+collections:
+  - name: "content"
+    label: "Website content"
+    files:
+      - name: "dogs"
+        label: "Dogs"
+        file: "dogs.json"
+        format: "json"
+        fields:
+          - name: "dogs"
+            label: "Dogs"
+            label_singular: "Dog"
+            widget: "list"
+            summary: "{{fields.name}} — {{fields.status}}"
+            fields:
+              - { name: "id", label: "ID (lowercase, no spaces — e.g. hope)", widget: "string", hint: "Used in the web link for this dog. Set it once and don't change it." }
+              - { name: "name", label: "Name", widget: "string" }
+              - { name: "status", label: "Status", widget: "select", options: ["available", "healing", "rescued", "pending"], default: "available", hint: "available = ready to adopt · healing = still recovering · rescued = found a home" }
+              - { name: "age", label: "Age", widget: "string", required: false }
+              - { name: "breed", label: "Breed / mix", widget: "string", required: false }
+              - { name: "size", label: "Size", widget: "select", options: ["Small", "Medium", "Large"], required: false }
+              - { name: "since", label: "Arrival date", widget: "date", format: "YYYY-MM-DD", required: false }
+              - { name: "photo", label: "Cover photo", widget: "image", required: false, hint: "Main photo for the card and top of the profile." }
+              - { name: "photos", label: "More photos (gallery)", widget: "list", required: false, field: { name: "image", label: "Photo", widget: "image" } }
+              - { name: "video", label: "Video link (YouTube or .mp4 URL)", widget: "string", required: false }
+              - { name: "desc", label: "Short line (shown on the card)", widget: "string", required: false }
+              - { name: "story", label: "Full story (shown on the profile page)", widget: "text", required: false }
