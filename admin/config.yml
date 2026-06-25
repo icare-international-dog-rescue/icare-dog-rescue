@@ -22,6 +22,7 @@ collections:
             label: "Dogs"
             label_singular: "Dog"
             widget: "list"
+            collapsed: true
             summary: "{{fields.name}} — {{fields.status}}"
             fields:
               - { name: "id", label: "ID (lowercase, no spaces — e.g. hope)", widget: "string", hint: "Used in the web link for this dog. Set it once and don't change it." }
@@ -40,12 +41,12 @@ collections:
                 options:
                   - { label: "Already sterilized", value: "Sterilized" }
                   - { label: "Will be sterilized before travel", value: "Waiting to be sterilized" }
-              - { name: "locations", label: "Locations (tags)", widget: "list", required: false, field: { name: "place", label: "Place", widget: "string" }, hint: "Add each place on its own line. For rescued dogs: where they now live (e.g. Stockholm, Sweden). For dogs still looking: where they can be adopted (e.g. Berlin, Germany)." }
+              - { name: "locations", label: "Locations (tags)", widget: "list", required: false, collapsed: true, summary: "{{fields.place}}", field: { name: "place", label: "Place", widget: "string" }, hint: "Add each place on its own line. For rescued dogs: where they now live (e.g. Stockholm, Sweden). For dogs still looking: where they can be adopted (e.g. Berlin, Germany)." }
               - { name: "since", label: "Arrival date", widget: "datetime", type: "date", format: "YYYY-MM-DD", required: false }
               - { name: "photo", label: "Cover photo", widget: "image", required: false, hint: "Main photo for the card and top of the profile." }
               - { name: "photos", label: "More photos (gallery)", widget: "image", multiple: true, required: false, hint: "You can select several photos at once." }
               - { name: "video", label: "Video link (YouTube or .mp4 URL)", widget: "string", required: false }
-              - { name: "video_file", label: "Or upload a short video clip", widget: "file", required: false, hint: "Best for short clips (keep under ~30–50 MB). For longer videos, paste a YouTube link above instead." }
+              - { name: "video_file", label: "Or upload a short video clip", widget: "file", required: false, hint: "Keep clips under ~10 seconds and below 30 MB — anything larger is too big for our free hosting. For longer videos, paste a YouTube link above instead." }
               - { name: "desc", label: "Short line (shown on the card)", widget: "string", required: false }
               - { name: "story", label: "Full story (shown on the profile page)", widget: "text", required: false }
 
