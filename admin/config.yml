@@ -30,9 +30,54 @@ collections:
               - { name: "age", label: "Age", widget: "string", required: false }
               - { name: "breed", label: "Breed / mix", widget: "string", required: false }
               - { name: "size", label: "Size", widget: "select", options: ["Small", "Medium", "Large"], required: false }
+              - { name: "locations", label: "Locations (tags)", widget: "list", required: false, field: { name: "place", label: "Place", widget: "string" }, hint: "Add each place on its own line. For rescued dogs: where they now live (e.g. Stockholm, Sweden). For dogs still looking: where they can be adopted (e.g. Berlin, Germany)." }
               - { name: "since", label: "Arrival date", widget: "datetime", type: "date", format: "YYYY-MM-DD", required: false }
               - { name: "photo", label: "Cover photo", widget: "image", required: false, hint: "Main photo for the card and top of the profile." }
-              - { name: "photos", label: "More photos (gallery)", widget: "list", required: false, field: { name: "image", label: "Photo", widget: "image" } }
+              - { name: "photos", label: "More photos (gallery)", widget: "image", multiple: true, required: false, hint: "You can select several photos at once." }
               - { name: "video", label: "Video link (YouTube or .mp4 URL)", widget: "string", required: false }
               - { name: "desc", label: "Short line (shown on the card)", widget: "string", required: false }
               - { name: "story", label: "Full story (shown on the profile page)", widget: "text", required: false }
+
+  - name: "pages"
+    label: "Website pages"
+    files:
+      - name: "how"
+        label: "How we work"
+        file: "how.json"
+        format: "json"
+        fields:
+          - { name: "intro", label: "Intro paragraph", widget: "text" }
+          - name: "steps"
+            label: "Steps"
+            label_singular: "Step"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { name: "title", label: "Step title", widget: "string" }
+              - { name: "body", label: "Step text", widget: "text" }
+              - { name: "highlight", label: "Highlight this step (blue box)?", widget: "boolean", default: false }
+          - name: "blocks"
+            label: "Highlighted boxes"
+            label_singular: "Box"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { name: "eyebrow", label: "Small label above title", widget: "string", required: false }
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "body", label: "Text", widget: "text" }
+              - { name: "color", label: "Color", widget: "select", options: ["blue", "orange"], default: "blue" }
+              - { name: "button_text", label: "Button text (optional)", widget: "string", required: false }
+              - { name: "button_link", label: "Button link (optional)", widget: "string", required: false, hint: "e.g. mailto:icareinternationaldogrescue@gmail.com" }
+      - name: "faq"
+        label: "FAQ"
+        file: "faq.json"
+        format: "json"
+        fields:
+          - name: "faqs"
+            label: "Questions"
+            label_singular: "Question"
+            widget: "list"
+            summary: "{{fields.question}}"
+            fields:
+              - { name: "question", label: "Question", widget: "string" }
+              - { name: "answer", label: "Answer", widget: "text" }
