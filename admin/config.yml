@@ -45,6 +45,7 @@ collections:
               - { name: "photo", label: "Cover photo", widget: "image", required: false, hint: "Main photo for the card and top of the profile." }
               - { name: "photos", label: "More photos (gallery)", widget: "image", multiple: true, required: false, hint: "You can select several photos at once." }
               - { name: "video", label: "Video link (YouTube or .mp4 URL)", widget: "string", required: false }
+              - { name: "video_file", label: "Or upload a short video clip", widget: "file", required: false, hint: "Best for short clips (keep under ~30–50 MB). For longer videos, paste a YouTube link above instead." }
               - { name: "desc", label: "Short line (shown on the card)", widget: "string", required: false }
               - { name: "story", label: "Full story (shown on the profile page)", widget: "text", required: false }
 
