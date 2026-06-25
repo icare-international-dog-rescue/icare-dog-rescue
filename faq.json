@@ -1,0 +1,12 @@
+{
+  "faqs": [
+    { "question": "How does the adoption process work?", "answer": "You apply through a dog's profile, we have a chat about your home, and once it's a good match we arrange the journey to your country. See our How We Work page for the full step-by-step." },
+    { "question": "Which countries do you adopt to?", "answer": "Germany, France, the Netherlands, Belgium, Canada, and the United States (New York and Seattle). Adoption fees vary by destination." },
+    { "question": "How much is the adoption fee, and where does it go?", "answer": "It varies by destination and mainly covers the dog's flight and travel paperwork. iCARE makes no profit — our volunteers give their time for free." },
+    { "question": "Can I meet or speak to the dog before adopting?", "answer": "Yes. We'll arrange a video introduction, and we're happy to connect you with a family who's already adopted from us so you can hear about it first-hand." },
+    { "question": "What is a flight volunteer, and how can I help?", "answer": "If you're flying to one of our destination countries, you can help a dog travel as accompanied luggage at no extra cost to you. We handle the crate, paperwork, and hand-over. Get in touch if you have a trip coming up." },
+    { "question": "Are the dogs vaccinated and neutered?", "answer": "Yes — dogs are vaccinated, health-checked, and neutered where age-appropriate before they travel." },
+    { "question": "My dog sometimes arrives via a host family — what does that mean?", "answer": "Sometimes a dog flies to your country ahead of time and stays with one of our trusted intermediate host families until you're ready to welcome them home." },
+    { "question": "What happens if the adoption doesn't work out?", "answer": "We ask that the dog always comes back to us rather than being rehomed elsewhere. We'll talk you through all of this during the process." }
+  ]
+}
