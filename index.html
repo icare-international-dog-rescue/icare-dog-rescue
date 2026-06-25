@@ -228,7 +228,7 @@ function locTags(d){
   if(!locs.length) return '';
   var rescued = d.status==='rescued';
   var cls = rescued ? 'p-res' : 'p-av';
-  var label = rescued ? 'Now in' : 'Available in';
+  var label = rescued ? 'Now in' : 'Can be adopted to';
   return `<div class="loclabel"><span>📍</span>${label}</div><div class="pins">${locs.map(x=>`<span class="pin ${cls}">${esc(x)}</span>`).join('')}</div>`;
 }
 
