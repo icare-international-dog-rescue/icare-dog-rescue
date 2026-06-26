@@ -111,14 +111,13 @@
   .contact h2{font-size:30px; font-weight:800}
   .contact p{color:var(--ink-soft); max-width:48ch; margin:10px auto 22px; font-size:16px}
   .contact .row{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
-  .share-site{margin-top:30px; padding-top:26px; border-top:1px solid var(--line); max-width:520px; margin-left:auto; margin-right:auto}
-  .share-h{font-size:15px; font-weight:700; color:var(--ink); margin-bottom:14px}
-  .share-btns{display:flex; flex-wrap:wrap; gap:10px; justify-content:center}
-  .sb{display:inline-flex; align-items:center; gap:8px; padding:11px 16px; border-radius:11px; border:1px solid transparent; font:inherit; font-weight:700; font-size:14px; cursor:pointer; transition:.15s}
-  .sb svg{display:block}
-  .sb-fb{background:#1877F2; color:#fff} .sb-fb:hover{background:#1466d6}
-  .sb-ig{background:#C1358A; color:#fff} .sb-ig:hover{background:#a82c77}
-  .sb-cp{background:#fff; color:var(--blue); border-color:var(--blue)} .sb-cp:hover{background:var(--panel)}
+  .foot-inner{display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap}
+  .foot-copy{font-size:13px; color:var(--ink-soft)}
+  .share-mini{display:flex; align-items:center; gap:7px}
+  .share-mini .share-lab{font-size:12px; color:#9aa7b3}
+  .share-mini button{width:34px; height:34px; border-radius:50%; border:0.5px solid var(--line); background:#fff; color:var(--ink-soft); display:inline-flex; align-items:center; justify-content:center; cursor:pointer; transition:.15s}
+  .share-mini button:hover{background:var(--panel); color:var(--blue)}
+  .share-mini svg{display:block; width:17px; height:17px}
   .toast{position:fixed; left:50%; bottom:26px; transform:translateX(-50%) translateY(12px); background:var(--ink); color:#fff; padding:12px 18px; border-radius:12px; font-size:14px; font-weight:600; max-width:90%; text-align:center; box-shadow:0 14px 34px -10px rgba(0,0,0,.45); opacity:0; transition:.3s; z-index:200; pointer-events:none}
   .toast.show{opacity:1; transform:translateX(-50%) translateY(0)}
 
@@ -197,20 +196,19 @@
       <a class="btn btn-ghost" href="https://www.instagram.com/icare_dog_rescue" target="_blank" rel="noopener">Find us on Instagram</a>
       <a class="btn btn-ghost" href="https://www.facebook.com/profile.php?id=61555386682985" target="_blank" rel="noopener">Find us on Facebook</a>
     </div>
-    <div class="share-site">
-      <div class="share-h">Help these dogs — share iCARE</div>
-      <div class="share-btns">
-        <button type="button" class="sb sb-fb" onclick="shareFB()"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7h2.34l.35-2.72H13.5V9.54c0-.79.22-1.32 1.35-1.32h1.44V5.78c-.25-.03-1.1-.11-2.1-.11-2.08 0-3.5 1.27-3.5 3.6v2.01H8.34V14h2.35v7z"/></svg> Facebook</button>
-        <button type="button" class="sb sb-ig" onclick="shareIG()"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg> Instagram</button>
-        <button type="button" class="sb sb-cp" onclick="shareCopy(this)"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 14.5l5-5"/><path d="M11 6.5l1-1a3.5 3.5 0 0 1 5 5l-1.5 1.5"/><path d="M13 17.5l-1 1a3.5 3.5 0 0 1-5-5l1.5-1.5"/></svg> <span class="cl">Copy link</span></button>
-      </div>
-    </div>
   </div>
 </section>
 
 <footer>
-  © <span id="yr"></span> iCARE International Dog Rescue ·
-  <a href="mailto:icareinternationaldogrescue@gmail.com">icareinternationaldogrescue@gmail.com</a>
+  <div class="foot-inner wrap">
+    <span class="foot-copy">© <span id="yr"></span> iCARE International Dog Rescue · <a href="mailto:icareinternationaldogrescue@gmail.com">icareinternationaldogrescue@gmail.com</a></span>
+    <div class="share-mini">
+      <span class="share-lab">Share</span>
+      <button type="button" aria-label="Share on Facebook" onclick="shareFB()"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7h2.34l.35-2.72H13.5V9.54c0-.79.22-1.32 1.35-1.32h1.44V5.78c-.25-.03-1.1-.11-2.1-.11-2.08 0-3.5 1.27-3.5 3.6v2.01H8.34V14h2.35v7z"/></svg></button>
+      <button type="button" aria-label="Share on Instagram" onclick="shareIG()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg></button>
+      <button type="button" aria-label="Copy link" onclick="shareCopy(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 14.5l5-5"/><path d="M11 6.5l1-1a3.5 3.5 0 0 1 5 5l-1.5 1.5"/><path d="M13 17.5l-1 1a3.5 3.5 0 0 1-5-5l1.5-1.5"/></svg></button>
+    </div>
+  </div>
 </footer>
 
 <script>
