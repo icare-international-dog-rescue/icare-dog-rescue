@@ -83,6 +83,33 @@
       "video_file": "/images/44.mp4",
       "desc": "Meet Nuòmǐ (糯米), whose name means \"Sticky Rice\" 🍚, a soft, sweet, sticky treat, just like this affectionate boy who loves to stay close.",
       "story": "Here's a little about him: he's a Samoyed, a neutered male, around one year old, weighing about 18kg. Nuòmǐ is loving, lively, and brimming with energy 🐾. He's currently working on reinforcing his outdoor potty habits, getting a little better every day.\n\nAs for his story, Nuòmǐ was rescued from life as a stray. Because he had a skin condition, his fur was shaved so he could be treated, and he's now slowly recovering and blossoming back to health ☀️. With a bit of patience and love, this fluffy sweetheart is well on his way to his happiest, healthiest self."
+    },
+    {
+      "id": "咖啡 (coffee)",
+      "name": "Coffee",
+      "status": "rescued",
+      "age": "3",
+      "breed": "Poodle Mix",
+      "size": "Small",
+      "gender": "Male",
+      "weight": "8kg",
+      "microchip": "Yes",
+      "sterilized": "Sterilized",
+      "locations": [
+        "Toronto"
+      ],
+      "since": "2025-09-25",
+      "photo": "/images/87.jpeg",
+      "photos": [
+        "/images/IMG_1770.jpeg",
+        "/images/IMG_2124.jpeg",
+        "/images/IMG_1877.jpeg",
+        "/images/8DBD92C6-D971-4139-9031-ECF41F3E6406.jpeg"
+      ],
+      "video": "",
+      "video_file": "",
+      "desc": "",
+      "story": ""
     }
   ]
 }
