@@ -4,7 +4,8 @@
       "id": "Niik",
       "name": "Niik",
       "status": "rescued",
-      "age": "3 years",
+      "age_value": 4,
+      "age_unit": "years",
       "breed": "Street Dog Breed Mixed",
       "size": "Medium",
       "gender": "Male",
@@ -14,7 +15,8 @@
       "locations": [
         "Stockholm, Sweden"
       ],
-      "since": "2023-11-18",
+      "since": "",
+      "arrived": "2023-11-18",
       "photo": "/images/IMG_5248.jpeg",
       "photos": [
         "/images/IMG_1055.jpeg",
@@ -24,13 +26,16 @@
       ],
       "video": "",
       "desc": "Niik enjoys the sunshine in Sweden",
-      "story": "Niik was first rescued by the organization from a dog meat trader, then spotted by his adopter on Red Note. With help from volunteers, Niik was brought to Germany, and from there his mom picked him up and took him to Sweden."
+      "story": "Niik was first rescued by the organization from a dog meat trader, then spotted by his adopter on Red Note. With help from volunteers, Niik was brought to Germany, and from there his mom picked him up and took him to Sweden.",
+      "age": "3 years"
     },
     {
       "id": "立夏(LiXia)",
       "name": "LiXia",
       "status": "healing",
-      "age": "1 year old",
+      "age_value": 1,
+      "age_unit": "years",
+      "age_approx": true,
       "breed": "Chinese Rural Dog",
       "size": "Small",
       "gender": "Male",
@@ -42,7 +47,8 @@
         "Germany",
         "France"
       ],
-      "since": "2026-06-25",
+      "since": "2026-03-25",
+      "arrived": "",
       "photo": "/images/lixia 3.jpg",
       "photos": [
         "/images/lixia 4.jpg",
@@ -52,13 +58,16 @@
       ],
       "video": "",
       "desc": "Meet Lìxià (立夏)—a name that means \"the Beginning of Summer.\"",
-      "story": "Meet Lìxià (立夏) 🌱—a name that means \"the Beginning of Summer.\" In the Chinese calendar, Lìxià marks the gentle turning point when spring gives way to warmer days, when everything begins to grow lush and full of life. It's a name full of hope and new beginnings, perfect for a dog stepping into a fresh chapter of their own.\n\nLìxià is wonderfully affectionate with people, though a little shy around the elderly. They're tidy by nature and prefer to do their business outdoors. \n\nLike the season they're named for, Lìxià has weathered their share of storms before reaching brighter days ☀️. They were rescued and treated for rectal prolapse, a skin condition, and a grade 2 patellar luxation. Happily, the prolapse and skin condition have both healed completely. The luxation isn't severe enough to need surgery for now, so it simply needs gentle, preventive care, which means staying on joint medication to keep them comfortable and moving well. With a little ongoing love and attention, this sweet soul is ready to blossom into their very own summer 🐾."
+      "story": "Meet Lìxià (立夏) 🌱—a name that means \"the Beginning of Summer.\" In the Chinese calendar, Lìxià marks the gentle turning point when spring gives way to warmer days, when everything begins to grow lush and full of life. It's a name full of hope and new beginnings, perfect for a dog stepping into a fresh chapter of their own.\n\nLìxià is wonderfully affectionate with people, though a little shy around the elderly. They're tidy by nature and prefer to do their business outdoors. \n\nLike the season they're named for, Lìxià has weathered their share of storms before reaching brighter days ☀️. They were rescued and treated for rectal prolapse, a skin condition, and a grade 2 patellar luxation. Happily, the prolapse and skin condition have both healed completely. The luxation isn't severe enough to need surgery for now, so it simply needs gentle, preventive care, which means staying on joint medication to keep them comfortable and moving well. With a little ongoing love and attention, this sweet soul is ready to blossom into their very own summer 🐾.",
+      "age": "1 year old"
     },
     {
       "id": "糯米",
       "name": "NuoMi",
       "status": "healing",
-      "age": "1 years old",
+      "age_value": 1,
+      "age_unit": "years",
+      "age_approx": true,
       "breed": "Samoyed",
       "size": "Medium",
       "gender": "Male",
@@ -73,6 +82,7 @@
         "Belgium"
       ],
       "since": "2026-06-02",
+      "arrived": "",
       "photo": "/images/nuomi 22.jpg",
       "photos": [
         "/images/nuomi 22.jpg",
@@ -82,13 +92,13 @@
       "video": "",
       "video_file": "/images/44.mp4",
       "desc": "Meet Nuòmǐ (糯米), whose name means \"Sticky Rice\" 🍚, a soft, sweet, sticky treat, just like this affectionate boy who loves to stay close.",
-      "story": "Here's a little about him: he's a Samoyed, a neutered male, around one year old, weighing about 18kg. Nuòmǐ is loving, lively, and brimming with energy 🐾. He's currently working on reinforcing his outdoor potty habits, getting a little better every day.\n\nAs for his story, Nuòmǐ was rescued from life as a stray. Because he had a skin condition, his fur was shaved so he could be treated, and he's now slowly recovering and blossoming back to health ☀️. With a bit of patience and love, this fluffy sweetheart is well on his way to his happiest, healthiest self."
+      "story": "Here's a little about him: he's a Samoyed, a neutered male, around one year old, weighing about 18kg. Nuòmǐ is loving, lively, and brimming with energy 🐾. He's currently working on reinforcing his outdoor potty habits, getting a little better every day.\n\nAs for his story, Nuòmǐ was rescued from life as a stray. Because he had a skin condition, his fur was shaved so he could be treated, and he's now slowly recovering and blossoming back to health ☀️. With a bit of patience and love, this fluffy sweetheart is well on his way to his happiest, healthiest self.",
+      "age": "1 years old"
     },
     {
       "id": "咖啡 (coffee)",
       "name": "Coffee",
       "status": "rescued",
-      "age": "3",
       "breed": "Poodle Mix",
       "size": "Small",
       "gender": "Male",
@@ -112,13 +122,13 @@
       "video": "",
       "video_file": "",
       "desc": "",
-      "story": "This dog, named Coffee, was given up by the first owner because of pregnancy. Then, the second owner, who did not want him to be given away to others, later regretted taking him back. Coffee, feeling unwanted, was tied to a vehicle by the second owner and dragged, causing injuries to his belly and legs. He was rescued by iCare, then treated, and brought to Canada by flight volunteer. His mama said that the so-called “foster fail” is the best fail she has ever had in her life."
+      "story": "This dog, named Coffee, was given up by the first owner because of pregnancy. Then, the second owner, who did not want him to be given away to others, later regretted taking him back. Coffee, feeling unwanted, was tied to a vehicle by the second owner and dragged, causing injuries to his belly and legs. He was rescued by iCare, then treated, and brought to Canada by flight volunteer. His mama said that the so-called “foster fail” is the best fail she has ever had in her life.",
+      "age": "3"
     },
     {
       "id": "luna_01",
       "name": "Luna",
       "status": "rescued",
-      "age": "3",
       "breed": "Poodle Mix",
       "size": "Small",
       "gender": "Female",
@@ -133,13 +143,13 @@
       "video": "",
       "video_file": "",
       "desc": "",
-      "story": "Rescued from the streets, begging for food from passers-by, Luna was taken to the shelter, then her now parents saw the post and decided she's the one! Luna was then flew over to Toronto by flight volunteers to be reunited with her family."
+      "story": "Rescued from the streets, begging for food from passers-by, Luna was taken to the shelter, then her now parents saw the post and decided she's the one! Luna was then flew over to Toronto by flight volunteers to be reunited with her family.",
+      "age": "3"
     },
     {
       "id": "wuyi",
       "name": "Oui",
       "status": "rescued",
-      "age": "2",
       "breed": "Samoyed",
       "size": "Large",
       "gender": "Male",
@@ -160,7 +170,8 @@
       "video": "",
       "video_file": "",
       "desc": "",
-      "story": ""
+      "story": "",
+      "age": "2"
     }
   ]
 }
