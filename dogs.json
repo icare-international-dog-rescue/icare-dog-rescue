@@ -131,6 +131,33 @@
       "video_file": "",
       "desc": "",
       "story": "Rescued from the streets, begging for food from passers-by, Luna was taken to the shelter, then her now parents saw the post and decided she's the one! Luna was then flew over to Toronto by flight volunteers to be reunited with her family."
+    },
+    {
+      "id": "wuyi",
+      "name": "Oui",
+      "status": "rescued",
+      "age": "2",
+      "breed": "Samoyed",
+      "size": "Large",
+      "gender": "Male",
+      "weight": "12kg",
+      "microchip": "Yes",
+      "sterilized": "Sterilized",
+      "locations": [
+        "Toronto"
+      ],
+      "since": "2025-09-01",
+      "photo": "/images/56980.jpeg",
+      "photos": [
+        "/images/56983.jpeg",
+        "/images/56983.jpeg",
+        "/images/56973.jpeg",
+        "/images/56971.jpeg"
+      ],
+      "video": "",
+      "video_file": "",
+      "desc": "",
+      "story": ""
     }
   ]
 }
