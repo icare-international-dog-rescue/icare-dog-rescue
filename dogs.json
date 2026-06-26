@@ -110,6 +110,27 @@
       "video_file": "",
       "desc": "",
       "story": ""
+    },
+    {
+      "id": "luna_01",
+      "name": "Luna",
+      "status": "rescued",
+      "age": "3",
+      "breed": "Poodle Mix",
+      "size": "Small",
+      "gender": "Female",
+      "weight": "6.5kg",
+      "microchip": "Yes",
+      "sterilized": "Sterilized",
+      "locations": [
+        "Toronto"
+      ],
+      "since": "2024-10-19",
+      "photo": "/images/IMG_7051.jpeg",
+      "video": "",
+      "video_file": "",
+      "desc": "",
+      "story": "Rescued from the streets, begging for food from passers-by, Luna was taken to the shelter, then her now parents saw the post and decided she's the one! Luna was then flew over to Toronto by flight volunteers to be reunited with her family."
     }
   ]
 }
