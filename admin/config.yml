@@ -28,7 +28,9 @@ collections:
               - { name: "id", label: "ID (lowercase, no spaces — e.g. hope)", widget: "string", hint: "Used in the web link for this dog. Set it once and don't change it." }
               - { name: "name", label: "Name", widget: "string" }
               - { name: "status", label: "Status", widget: "select", options: ["available", "healing", "rescued", "pending"], default: "available", hint: "available = ready to adopt · healing = still recovering · rescued = found a home" }
-              - { name: "age", label: "Age", widget: "string", required: false }
+              - { name: "age_value", label: "Age (number)", widget: "number", value_type: "int", min: 0, required: false, hint: "Just the number — e.g. 3. Pick the unit below." }
+              - { name: "age_unit", label: "Age unit", widget: "select", options: ["years", "months"], default: "years", required: false }
+              - { name: "age_approx", label: "Approximate age?", widget: "boolean", default: false, required: false, hint: "Turn on if the age is an estimate — shows as ~3 years." }
               - { name: "breed", label: "Breed / mix", widget: "string", required: false }
               - { name: "size", label: "Size", widget: "select", options: ["Small", "Medium", "Large"], required: false }
               - { name: "gender", label: "Gender", widget: "select", options: ["Female", "Male"], required: false }
@@ -42,7 +44,8 @@ collections:
                   - { label: "Already sterilized", value: "Sterilized" }
                   - { label: "Will be sterilized before travel", value: "Waiting to be sterilized" }
               - { name: "locations", label: "Locations (tags)", widget: "list", required: false, collapsed: true, summary: "{{fields.place}}", field: { name: "place", label: "Place", widget: "string" }, hint: "Add each place on its own line. For rescued dogs: where they now live (e.g. Stockholm, Sweden). For dogs still looking: where they can be adopted (e.g. Berlin, Germany)." }
-              - { name: "since", label: "Arrival date", widget: "datetime", type: "date", format: "YYYY-MM-DD", required: false }
+              - { name: "since", label: "In our care since (rescue date)", widget: "datetime", type: "date", format: "YYYY-MM-DD", required: false, hint: "When this dog came into our care. Shown on the profile for dogs still looking for a home." }
+              - { name: "arrived", label: "Arrived-home date", widget: "datetime", type: "date", format: "YYYY-MM-DD", required: false, hint: "Only for happy endings — the date the dog reached its new home. Shown once the status is set to 'rescued'." }
               - { name: "photo", label: "Cover photo", widget: "image", required: false, hint: "Main photo for the card and top of the profile." }
               - { name: "photos", label: "More photos (gallery)", widget: "image", multiple: true, required: false, hint: "You can select several photos at once." }
               - { name: "video", label: "Video link (YouTube or .mp4 URL)", widget: "string", required: false }
