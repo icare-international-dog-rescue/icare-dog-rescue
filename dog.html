@@ -199,9 +199,11 @@ var IC_LINK='<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke=
 function copyText(t){ try{ if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(t); return true; } }catch(e){} try{ var ta=document.createElement('textarea'); ta.value=t; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); return true; }catch(e){ return false; } }
 function toast(msg){ var t=document.createElement('div'); t.className='toast'; t.textContent=msg; document.body.appendChild(t); setTimeout(function(){ t.classList.add('show'); },10); setTimeout(function(){ t.classList.remove('show'); setTimeout(function(){ if(t.parentNode) t.parentNode.removeChild(t); },300); },3400); }
 function shareName(){ return window.__shareName||'this dog'; }
-function shareFB(){ window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'_blank','noopener'); }
-function shareIG(){ var url=location.href, nm=shareName(); var cap='Meet '+nm+' 🐾 '+nm+' is looking for a loving home through iCARE International Dog Rescue. Could you help spread the word?\n'+url; if(navigator.share){ navigator.share({title:nm+' · iCARE International Dog Rescue', text:cap, url:url}).catch(function(){}); } else { copyText(cap); window.open('https://www.instagram.com/','_blank','noopener'); toast('Caption + link copied — paste it into your Instagram post or story.'); } }
-function shareCopy(btn){ var ok=copyText(location.href); var l=btn&&btn.querySelector?btn.querySelector('.cl'):null; if(l){ var o=l.textContent; l.textContent='Link copied!'; setTimeout(function(){ l.textContent=o; },1800); } else { toast(ok?'Link copied!':'Could not copy — please copy from the address bar.'); } }
+function slugForId(id){ return encodeURIComponent(String(id==null?'':id)).replace(/%/g,'_').replace(/[^A-Za-z0-9_-]/g,'_'); }
+function shareUrl(){ return window.__shareUrl || location.href; }
+function shareFB(){ window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(shareUrl()),'_blank','noopener'); }
+function shareIG(){ var url=shareUrl(), nm=shareName(); var cap='Meet '+nm+' 🐾 '+nm+' is looking for a loving home through iCARE International Dog Rescue. Could you help spread the word?\n'+url; if(navigator.share){ navigator.share({title:nm+' · iCARE International Dog Rescue', text:cap, url:url}).catch(function(){}); } else { copyText(cap); window.open('https://www.instagram.com/','_blank','noopener'); toast('Caption + link copied — paste it into your Instagram post or story.'); } }
+function shareCopy(btn){ var ok=copyText(shareUrl()); var l=btn&&btn.querySelector?btn.querySelector('.cl'):null; if(l){ var o=l.textContent; l.textContent='Link copied!'; setTimeout(function(){ l.textContent=o; },1800); } else { toast(ok?'Link copied!':'Could not copy — please copy from the address bar.'); } }
 function qid(){ const p=new URLSearchParams(location.search); return p.get('id'); }
 
 function ytEmbed(url){
@@ -306,6 +308,7 @@ function render(d){
     ${volBlock}
     ${applyBlock}`;
   window.__shareName = d.name;
+  window.__shareUrl = new URL('d/'+slugForId(d.id||d.name)+'.html', location.href).href;
   document.getElementById('yr').textContent = new Date().getFullYear();
   if(d && d.name){ document.title = d.name + ' · iCARE International Dog Rescue'; }
   revealObserve(Array.prototype.slice.call(main.children));
