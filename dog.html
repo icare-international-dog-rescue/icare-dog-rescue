@@ -58,43 +58,43 @@
   .vol-callout p{margin:0; font-size:14.5px; color:#5a3a2c}
   .vol-callout a{color:var(--orange-dark); font-weight:700; text-decoration:none}
 
-  .cover{position:relative; aspect-ratio:16/7; border-radius:var(--r); margin-top:26px; overflow:hidden; display:grid; place-items:center; background:#0c2236}
-  .cover-bg{position:absolute; inset:0; background-size:cover; background-position:center; filter:blur(24px) brightness(.7); transform:scale(1.15); z-index:0}
-  .cover-img{position:relative; z-index:1; height:100%; width:auto; max-width:100%; object-fit:contain; cursor:zoom-in}
-  .cover .ph-letter{font-family:"Montserrat"; font-weight:800; font-size:120px; color:rgba(255,255,255,.95); position:relative; z-index:1}
-  .status{position:absolute; top:14px; left:14px; font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:6px 12px; border-radius:999px; color:#fff; z-index:3}
-  .s-available{background:var(--orange)} .s-healing{background:var(--blue)} .s-rescued{background:var(--green)} .s-pending{background:#7E8A99}
+  .profile-grid{display:grid; grid-template-columns:minmax(0,360px) 1fr; gap:34px; align-items:start; margin-top:26px}
+  .media-col{position:sticky; top:90px; align-self:start}
+  .info-col{min-width:0}
+  .cover{position:relative; aspect-ratio:4/5; border-radius:var(--r); overflow:hidden; display:grid; place-items:center; background:#0c2236}
+  .cover-img{width:100%; height:100%; object-fit:cover; object-position:center; cursor:zoom-in}
+  .cover .ph-letter{font-family:"Montserrat"; font-weight:800; font-size:96px; color:rgba(255,255,255,.95)}
+  @media(max-width:760px){
+    .profile-grid{grid-template-columns:1fr; gap:20px}
+    .media-col{position:static}
+    .cover{aspect-ratio:4/3}
+  }
 
-  .head{display:flex; align-items:flex-end; justify-content:space-between; gap:16px; margin-top:22px; flex-wrap:wrap}
-  .head h1{font-size:clamp(30px,5vw,46px); font-weight:800}
-  .specs{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px}
-  .chip{font-size:13px; background:var(--panel); color:var(--ink-soft); padding:5px 11px; border-radius:8px}
-  .facts{display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:10px; margin-top:18px}
-  .fact{background:#fff; border:1px solid var(--line); border-radius:12px; padding:13px 15px}
-  .fact .k{font-size:11px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-soft)}
-  .fact .v{font-size:16px; font-weight:600; color:var(--ink); margin-top:3px}
-  .fact .v.ok{color:var(--green)}
-  .note{display:flex; gap:8px; align-items:flex-start; margin-top:13px; font-size:13.5px; color:var(--ink-soft)}
-  .note b{color:var(--ink)}
-  .prose{max-width:720px; margin:0 auto}
-  .metadate{display:flex; align-items:center; gap:7px; margin-top:9px; color:var(--ink-soft); font-size:14px}
-  .metadate .ml{font-size:11.5px; font-weight:700; letter-spacing:.05em; text-transform:uppercase}
-  .metadate .dv{font-weight:700; color:var(--ink)}
-  .share{margin-top:32px; padding-top:26px; border-top:1px solid var(--line)}
-  .share-h{font-size:15px; font-weight:700; color:var(--ink); margin-bottom:14px}
-  .share-btns{display:flex; flex-wrap:wrap; gap:10px}
-  .sb{display:inline-flex; align-items:center; gap:8px; padding:11px 16px; border-radius:11px; border:1px solid transparent; font:inherit; font-weight:700; font-size:14px; cursor:pointer; transition:.15s}
-  .sb svg{display:block}
-  .sb-fb{background:#1877F2; color:#fff} .sb-fb:hover{background:#1466d6}
-  .sb-ig{background:#C1358A; color:#fff} .sb-ig:hover{background:#a82c77}
-  .sb-cp{background:#fff; color:var(--blue); border-color:var(--blue)} .sb-cp:hover{background:var(--panel)}
+  .head{display:flex; align-items:flex-start; justify-content:space-between; gap:14px}
+  .head h1{font-size:clamp(28px,4vw,40px); font-weight:800; line-height:1.05; margin-top:2px}
+  .share-mini{display:flex; gap:6px; flex-shrink:0}
+  .share-mini button{width:32px; height:32px; border-radius:50%; border:none; background:var(--panel); color:var(--ink-soft); display:inline-flex; align-items:center; justify-content:center; cursor:pointer; transition:.15s}
+  .share-mini button:hover{background:#E1EAF3; color:var(--blue)}
+  .share-mini svg{display:block; width:16px; height:16px}
+  .metadate{display:flex; align-items:center; gap:7px; margin-top:10px; color:var(--ink-soft); font-size:13.5px}
+  .metadate .ml{font-weight:600}
+  .metadate .dv{font-weight:600; color:var(--ink)}
+  .specs{display:flex; flex-wrap:wrap; gap:16px 26px; margin-top:18px; padding:16px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+  .spec .sk{font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:#9aa7b3}
+  .spec .sv{font-size:15px; font-weight:600; color:var(--ink); margin-top:2px}
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px}
+  .tag-ok{display:inline-flex; align-items:center; gap:4px; font-size:12.5px; color:var(--green); background:#EAF3E9; padding:5px 11px; border-radius:20px}
+  .loc-row{display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-top:12px}
+  .loc-lab{font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:#9aa7b3}
+  .tag-loc{font-size:12.5px; color:var(--blue-dark); background:#E6F1FB; padding:5px 11px; border-radius:20px}
+  .story{font-size:16.5px; color:#2C3A4D; margin-top:20px; line-height:1.7}
+  .story p{margin:0 0 14px} .story p:last-child{margin-bottom:0}
+  .apply-cta{margin-top:22px}
   .toast{position:fixed; left:50%; bottom:26px; transform:translateX(-50%) translateY(12px); background:var(--ink); color:#fff; padding:12px 18px; border-radius:12px; font-size:14px; font-weight:600; max-width:90%; text-align:center; box-shadow:0 14px 34px -10px rgba(0,0,0,.45); opacity:0; transition:.3s; z-index:200; pointer-events:none}
   .toast.show{opacity:1; transform:translateX(-50%) translateY(0)}
-  .story{font-size:17px; color:#2C3A4D; margin-top:22px}
-  .story p{margin:0 0 14px} .story p:last-child{margin-bottom:0}
 
-  .gallery{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px; margin-top:24px}
-  .gallery img{width:100%; aspect-ratio:1; object-fit:cover; border-radius:14px; border:1px solid var(--line); cursor:zoom-in; transition:transform .15s}
+  .gallery{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:8px; margin-top:8px}
+  .gallery img{width:100%; aspect-ratio:1; object-fit:cover; border-radius:10px; border:1px solid var(--line); cursor:zoom-in; transition:transform .15s}
   .gallery img:hover{transform:scale(1.02)}
   .lb{position:fixed; inset:0; background:rgba(8,16,26,.93); display:none; align-items:center; justify-content:center; z-index:100}
   .lb.open{display:flex}
@@ -105,9 +105,9 @@
   .lb-prev, .lb-next{top:50%; transform:translateY(-50%); width:48px; height:66px; font-size:30px}
   .lb-prev{left:14px} .lb-next{right:14px}
   .lb-count{bottom:18px; left:50%; transform:translateX(-50%); color:#fff; font-size:13px; background:rgba(255,255,255,.14); padding:5px 12px; border-radius:999px; pointer-events:none}
-  .media-video{margin-top:24px; display:flex; justify-content:center}
-  .media-video video{max-height:540px; max-width:100%; border-radius:14px; box-shadow:0 22px 50px -18px rgba(6,46,90,.55); background:#000; display:block}
-  .media-video .yt{width:min(760px,100%); aspect-ratio:16/9; border-radius:14px; overflow:hidden; box-shadow:0 22px 50px -18px rgba(6,46,90,.55)}
+  .media-video{margin-top:8px; display:flex; justify-content:center}
+  .media-video video{max-height:460px; max-width:100%; border-radius:10px; background:#000; display:block}
+  .media-video .yt{width:100%; aspect-ratio:16/9; border-radius:10px; overflow:hidden}
   .media-video .yt iframe{width:100%; height:100%; border:0; display:block}
 
   .btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; font:inherit; font-weight:700; font-size:14.5px; padding:12px 20px; border-radius:11px; border:1px solid transparent; cursor:pointer; transition:.15s; text-decoration:none}
@@ -224,7 +224,7 @@ function render(d){
   const cphoto = resolveSrc(d.photo);
   const coverStyle = cphoto ? '' : `background:${GRADIENTS[0]}`;
   const coverInner = cphoto
-    ? `<div class="cover-bg" style="background-image:url('${cphoto.replace(/'/g,"")}')"></div><img class="cover-img lbimg" src="${esc(cphoto)}" alt="${esc(d.name)}">`
+    ? `<img class="cover-img lbimg" src="${esc(cphoto)}" alt="${esc(d.name)}">`
     : `<span class="ph-letter">${esc((d.name||'?')[0])}</span>`;
   const photos = Array.isArray(d.photos)? d.photos.filter(Boolean):[];
   const gallery = photos.length ? `<div class="gallery">${photos.map(p=>`<img class="lbimg" src="${esc(resolveSrc(p))}" alt="${esc(d.name)}">`).join('')}</div>` : '';
@@ -237,29 +237,27 @@ function render(d){
 
   const isRescued = d.status==='rescued';
   const locs = Array.isArray(d.locations) ? d.locations.filter(Boolean) : [];
-  const locBlock = locs.length
-    ? `<div class="loclabel"><span>📍</span>${isRescued?'Now in':'Can be adopted to'}</div>
-       <div class="pins">${locs.map(x=>`<span class="pin ${isRescued?'p-res':'p-av'}">${esc(x)}</span>`).join('')}</div>`
-    : '';
-  function fact(k,v,ok){ return v ? `<div class="fact"><div class="k">${esc(k)}</div><div class="v${ok?' ok':''}">${esc(v)}</div></div>` : ''; }
-  const factsHtml = [
-    fact('Gender', d.gender),
-    fact('Age', fmtAge(d)),
-    fact('Weight', d.weight),
-    fact('Breed', d.breed),
-    fact('Size', d.size),
-    fact('Microchipped', d.microchip, d.microchip==='Yes'),
-    fact('Sterilized', d.sterilized, d.sterilized==='Sterilized')
+
+  function spec(k,v){ return v ? `<div class="spec"><div class="sk">${esc(k)}</div><div class="sv">${esc(v)}</div></div>` : ''; }
+  const specHtml = [
+    spec('Gender', d.gender),
+    spec('Age', fmtAge(d)),
+    spec('Weight', d.weight),
+    spec('Breed', d.breed),
+    spec('Size', d.size)
   ].join('');
-  const factsBlock = factsHtml ? `<div class="facts">${factsHtml}</div>` : '';
-  const sterNote = `<div class="note"><span>🩺</span><span>We never rehome a dog before it's sterilized — <b>it's always done by us before they travel</b>, at no cost to you.</span></div>`;
-  const chipNote = `<div class="note"><span>🆔</span><span>Every dog is microchipped before the flight — <b>it's required for international travel</b> — so this is always taken care of.</span></div>`;
-  const volBlock = `<div class="vol-callout"><p>✈️ Many of our dogs reach their new homes thanks to travelling volunteers. If you have a trip coming up, you could help a dog fly. <a href="how.html">Learn how it works →</a></p></div>`;
-  const applyBlock = isRescued
-    ? `<div class="apply"><h2>${esc(d.name)} found a home ♥</h2>
-         <p class="lead">This is one of our happy endings. Want to help another dog find theirs?</p>
-         <a class="btn btn-primary" href="index.html#dogs">See dogs still waiting</a></div>`
-    : applyForm(d);
+  const specStrip = specHtml ? `<div class="specs">${specHtml}</div>` : '';
+
+  const sterTag = (d.sterilized==='Sterilized')
+    ? `<span class="tag-ok">✓ Sterilized</span>`
+    : `<span class="tag-ok">✓ Sterilized before travel</span>`;
+  const chipTag = (d.microchip==='Yes')
+    ? `<span class="tag-ok">✓ Microchipped</span>`
+    : `<span class="tag-ok">✓ Microchipped before flight</span>`;
+  const tagsRow = `<div class="tags">${sterTag}${chipTag}</div>`;
+  const locRow = locs.length
+    ? `<div class="loc-row"><span class="loc-lab">${isRescued?'Now in':'Can be adopted to'}</span>${locs.map(x=>`<span class="tag-loc">${esc(x)}</span>`).join('')}</div>`
+    : '';
 
   var dateLine = '';
   if(isRescued){
@@ -267,37 +265,46 @@ function render(d){
   } else {
     if(d.since) dateLine = `<div class="metadate"><span>🐾</span><span class="ml">In our care since</span><span class="dv">${esc(fmtDate(d.since))}</span></div>`;
   }
-  const shareBlock = `<div class="share">
-      <div class="share-h">Know someone who could help? Share ${esc(d.name)}</div>
-      <div class="share-btns">
-        <button type="button" class="sb sb-fb" onclick="shareFB()">${IC_FB} Facebook</button>
-        <button type="button" class="sb sb-ig" onclick="shareIG()">${IC_IG} Instagram</button>
-        <button type="button" class="sb sb-cp" onclick="shareCopy(this)">${IC_LINK} <span class="cl">Copy link</span></button>
-      </div>
-    </div>`;
+
+  const shareMini = `<div class="share-mini">
+        <button type="button" aria-label="Share on Facebook" onclick="shareFB()">${IC_FB}</button>
+        <button type="button" aria-label="Share on Instagram" onclick="shareIG()">${IC_IG}</button>
+        <button type="button" aria-label="Copy link" onclick="shareCopy(this)">${IC_LINK}</button>
+      </div>`;
+  const applyCta = isRescued ? '' : `<div class="apply-cta"><a class="btn btn-primary" href="#apply">Apply to adopt ${esc(d.name)}</a></div>`;
+
+  const volBlock = `<div class="vol-callout"><p>✈️ Many of our dogs reach their new homes thanks to travelling volunteers. If you have a trip coming up, you could help a dog fly. <a href="how.html">Learn how it works →</a></p></div>`;
+  const applyBlock = isRescued
+    ? `<div class="apply"><h2>${esc(d.name)} found a home ♥</h2>
+         <p class="lead">This is one of our happy endings. Want to help another dog find theirs?</p>
+         <a class="btn btn-primary" href="index.html#dogs">See dogs still waiting</a></div>`
+    : applyForm(d);
 
   main.innerHTML = `
-    <div class="cover" style="${coverStyle}"><span class="status s-${esc(d.status)}">${STATUS_LABEL[d.status]||''}</span>${coverInner}</div>
-    <div class="head">
-      <div>
-        <div class="eyebrow">${isRescued?'Happy ending':'Looking for a home'}</div>
-        <h1>${esc(d.name)}</h1>
-        ${dateLine}
+    <div class="profile-grid">
+      <div class="media-col">
+        <div class="cover" style="${coverStyle}">${coverInner}</div>
+        ${gallery}
+        ${video}
       </div>
-      ${!isRescued?`<a class="btn btn-primary" href="#apply">Apply to adopt ${esc(d.name)}</a>`:''}
+      <div class="info-col">
+        <div class="head">
+          <div>
+            <div class="eyebrow">${isRescued?'Happy ending':'Looking for a home'}</div>
+            <h1>${esc(d.name)}</h1>
+            ${dateLine}
+          </div>
+          ${shareMini}
+        </div>
+        ${specStrip}
+        ${tagsRow}
+        ${locRow}
+        <div class="story">${paras(d.story||d.desc||'')}</div>
+        ${applyCta}
+      </div>
     </div>
-    ${factsBlock}
-    <div class="prose">
-      ${sterNote}
-      ${chipNote}
-      ${locBlock}
-      <div class="story">${paras(d.story||d.desc||'')}</div>
-    </div>
-    ${gallery}
-    ${video}
     ${volBlock}
-    ${applyBlock}
-    ${shareBlock}`;
+    ${applyBlock}`;
   window.__shareName = d.name;
   document.getElementById('yr').textContent = new Date().getFullYear();
   if(d && d.name){ document.title = d.name + ' · iCARE International Dog Rescue'; }
