@@ -97,3 +97,29 @@ collections:
             fields:
               - { name: "question", label: "Question", widget: "string" }
               - { name: "answer", label: "Answer", widget: "text" }
+      - name: "stories"
+        label: "Stories & updates"
+        file: "stories.json"
+        format: "json"
+        fields:
+          - name: "years"
+            label: "Years"
+            label_singular: "Year"
+            widget: "list"
+            collapsed: true
+            summary: "{{fields.year}}"
+            hint: "Each year is a milestone on the timeline. Add a year, then add its video clips inside it. The newest year shows first automatically."
+            fields:
+              - { name: "year", label: "Year", widget: "number", value_type: "int", hint: "e.g. 2025" }
+              - { name: "summary", label: "Summary line (optional)", widget: "string", required: false, hint: "Shown next to the year, e.g. 240 dogs home · 6 countries. Leave blank to show just the year." }
+              - name: "clips"
+                label: "Clips"
+                label_singular: "Clip"
+                widget: "list"
+                collapsed: true
+                summary: "{{fields.title}}"
+                hint: "Each clip is one Instagram Reel. Drag to reorder within the year."
+                fields:
+                  - { name: "title", label: "Title", widget: "string" }
+                  - { name: "blurb", label: "Short line (optional)", widget: "string", required: false }
+                  - { name: "video", label: "Instagram Reel link", widget: "string", hint: "Paste the public Reel URL, e.g. https://www.instagram.com/reel/XXXXXXXXX/ — the Reel must stay public to show here." }
