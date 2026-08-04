@@ -93,6 +93,7 @@
       <a class="link" href="index.html#dogs">Meet all dogs</a>
       <a class="link active" href="how.html">How we work</a>
       <a class="link" href="get-involved.html">Get involved</a>
+      <a class="link" href="stories.html">Stories</a>
       <a class="link" href="faq.html">FAQ</a>
       <a class="btn btn-primary navcta" style="padding:9px 16px" href="index.html#contact">Contact Us</a>
     </nav>
@@ -119,21 +120,7 @@
 </footer>
 
 <script>
-const HOW_FALLBACK = {
-  intro: "Every iCARE dog is rescued from a difficult start, cared for with patience, and matched carefully with a family abroad. Here's the journey — and how you can be part of it.",
-  steps: [
-    {title:"Meet a dog", body:"Browse our dogs and open the profile of any who catches your heart.", highlight:false},
-    {title:"Apply", body:"Fill in the application on that dog's page. We read every one personally.", highlight:false},
-    {title:"We talk it through", body:"We discuss your home and the right match. We've placed hundreds of dogs in happy homes — and we're glad to put you in touch with an adopter near you, so you can hear what it's really like first-hand.", highlight:true},
-    {title:"The journey", body:"Your dog travels to your country. Sometimes they arrive ahead of time and stay with one of our intermediate host families until you're ready to welcome them.", highlight:false},
-    {title:"Welcome home", body:"Your new family member arrives — and a lifetime together begins.", highlight:false}
-  ],
-  blocks: [
-    {eyebrow:"Hundreds of happy homes", title:"Families across the world will vouch for us 💙", body:"We've sent rescue dogs to families in Germany, France, the Netherlands, Belgium, Canada, and the US. If you'd like reassurance from someone who's already been through it, just let us know during the process — we're happy to connect you with an adopter in your area who can share their honest, first-hand experience.", color:"blue", button_text:"", button_link:""},
-    {eyebrow:"Where your fee goes", title:"We make no profit", body:"Adoption fees vary by destination, but iCARE makes no profit. Our volunteers give their time for free, so the fee mainly covers the dog's flight and travel paperwork.", color:"blue", button_text:"", button_link:""},
-    {eyebrow:"Get involved", title:"✈️ We always need flight volunteers", body:"Many of our dogs reach their new homes thanks to ordinary travellers. If you're already flying to one of our destination countries, you can help a dog travel as accompanied luggage — it costs you nothing extra and saves a rescue hundreds.", color:"orange", button_text:"Email us about volunteering", button_link:"mailto:icareinternationaldogrescue@gmail.com"}
-  ]
-};
+const HOW_FALLBACK = {"intro": "Every iCARE dog is rescued from a difficult start, cared for with patience, and matched carefully with a family abroad. Here's the journey — and how you can be part of it.", "steps": [{"title": "Meet a dog", "body": "Browse our dogs and open the profile of any who catches your heart.", "highlight": false}, {"title": "Apply", "body": "Fill in the application on that dog's page. We read every one personally.", "highlight": false}, {"title": "We talk it through", "body": "We discuss your home and the right match. We've placed hundreds of dogs in happy homes — and we're glad to put you in touch with an adopter near you, so you can hear what it's really like first-hand.", "highlight": true}, {"title": "The journey", "body": "Your dog travels to your country. Sometimes they arrive ahead of time and stay with one of our transition families until you're ready to welcome them.", "highlight": false}, {"title": "Welcome home", "body": "Your new family member arrives — and a lifetime together begins.", "highlight": false}], "blocks": [{"eyebrow": "Hundreds of happy homes", "title": "Families across the world will vouch for us 💙", "body": "We've sent rescue dogs to families in Germany, France, the Netherlands, Belgium, Poland, Canada, and the US. If you'd like reassurance from someone who's already been through it, just let us know during the process — we're happy to connect you with an adopter in your area who can share their honest, first-hand experience.", "color": "blue", "button_text": "", "button_link": ""}, {"eyebrow": "Where your fee goes", "title": "We make no profit", "body": "Adoption fees vary by destination, but iCARE makes no profit. Our volunteers give their time for free, so the fee mainly covers the dog's flight and travel paperwork. Every penny goes toward getting dogs safely to their new families.", "color": "blue", "button_text": "", "button_link": ""}, {"eyebrow": "Get involved", "title": "More than one way to help 💛", "body": "Our dogs reach their families thanks to ordinary people. If you're flying from China to one of our destinations, you can accompany a dog at no cost to you — and once a dog arrives, transition families give them a warm place to stay until their family is ready.", "color": "orange", "button_text": "See how to get involved →", "button_link": "get-involved.html"}]};
 function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 function toggleMenu(){ var n=document.getElementById('navlinks'); var b=document.querySelector('.menu-btn'); var open=n.classList.toggle('open'); if(b) b.setAttribute('aria-expanded', open); }
 
