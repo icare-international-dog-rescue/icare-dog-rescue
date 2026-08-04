@@ -56,9 +56,15 @@
   .q:hover{background:var(--panel)}
   .q .ic{flex:none; width:24px; height:24px; border-radius:50%; background:var(--panel); color:var(--blue); display:grid; place-items:center; font-size:17px; transition:transform .2s}
   .item.open .q .ic{transform:rotate(45deg)}
-  .a{max-height:0; overflow:hidden; transition:max-height .3s ease}
-  .a p{margin:0; padding:0 16px 16px; font-size:14.5px; color:var(--ink-soft); max-width:66ch; white-space:pre-line}
-  .item.open .a{max-height:1200px}
+  .a{max-height:0; overflow:hidden; transition:max-height .4s ease}
+  .a-inner{padding:2px 18px 18px; font-size:15px; color:#2C3A4D; line-height:1.7; max-width:68ch}
+  .a-inner p{margin:0 0 10px}
+  .a-inner p:last-child{margin-bottom:0}
+  .a-inner ul{margin:6px 0 10px; padding-left:22px}
+  .a-inner ul:last-child{margin-bottom:0}
+  .a-inner li{margin:0 0 7px; padding-left:4px; line-height:1.6}
+  .a-inner li:last-child{margin-bottom:0}
+  .item.open .a{max-height:2000px}
   .more{margin:var(--section) 0; text-align:center; color:var(--ink-soft); font-size:15px}
   .more a{color:var(--blue); font-weight:700; text-decoration:none}
 
@@ -102,11 +108,27 @@
 <script>
 const FAQ_FALLBACK = {"faqs": [{"question": "How does the adoption process work?", "answer": "You apply through a dog's profile, we have a chat about your home and what you're looking for, and once it's a good match we arrange the journey to your country. You'll find the full step-by-step on our How We Work page."}, {"question": "How long does the process take?", "answer": "Usually somewhere between one and three months, though it's really case-by-case. Many of our dogs are already fully vaccinated with their travel documents ready, so much depends on finding the right match — and on when a flight volunteer is heading your way, since only certain airlines can carry dogs. Never hesitate to check with us about a particular dog."}, {"question": "Can I meet or speak to the dog before adopting?", "answer": "Yes. We'll arrange a video introduction, and we're happy to connect you with a family who's already adopted from us so you can hear about it first-hand."}, {"question": "Who can adopt?", "answer": "We look at every application personally, but a few things matter to us so a dog is set up to thrive:\n• You live in one of our destination countries as a citizen or resident — this is also needed for the dog's import paperwork.\n• You're in a stable, settled living situation. Our dogs have already been through one big upheaval, so we're usually not able to place with students or in temporary or uncertain housing.\n• Any pets you already have are vaccinated and neutered.\n• Everyone in your home is happy to welcome a dog.\n• You're ready for the long-term commitment — the time, space, and everyday costs.\nWe're always glad to talk it through before you apply."}, {"question": "What should I think about before I apply?", "answer": "Adopting is a big, long-term decision, and we'd always rather you took your time than rushed into it. A few things worth thinking through honestly first:\n• If you already have pets, how a new arrival might fit with their personalities and routines — not every pairing works, and it's kinder to consider it early.\n• Whether a particular dog's character, energy, and needs suit your home and daily life. We'll always tell you honestly what each dog is like.\n• That our animals join you as companions and family — never for breeding.\n• If your heart is set on a very young puppy, please know we can't promise that. Every dog leaves us only when they're fully ready — neutered, vaccinated, and recovered — and we won't rush a puppy out before then.\nWe're always happy to talk any of this through before you apply."}, {"question": "Which countries do you adopt to?", "answer": "Germany, France, the Netherlands, Belgium, Poland, Canada, and the United States (New York and Seattle). Fees vary by destination."}, {"question": "Are the dogs neutered and fully ready before they travel?", "answer": "Yes, always. Every dog travels only once they're fully prepared — neutered, vaccinated, microchipped, health-checked, rested, and recovered. We never rush a dog or puppy out before they're ready."}, {"question": "Will I know the dog's personality and any health needs?", "answer": "Yes. Because our dogs live in foster care before they travel, we get to know their real personality — and we share everything we know, the good and the challenging, honestly, before you decide."}, {"question": "Do you rescue cats too?", "answer": "Our website focuses on dogs, but we have many cats waiting in our rescue centres as well — and cats aren't subject to the strict US import rules that dogs are, so they're often easier to bring home. If you're interested in a cat, just reach out."}, {"question": "How much is the adoption fee, and where does it go?", "answer": "The fee varies by destination — the flight is the largest part — and it covers the dog's travel, veterinary care, and paperwork. iCARE makes no profit; our volunteers give their time for free, and the fee often doesn't even cover the full journey."}, {"question": "Is there an application fee?", "answer": "No — applying is completely free."}, {"question": "How does my dog actually travel to me?", "answer": "Your dog flies with the help of a volunteer already travelling to your country. We arrange the flight, the crate, and all the paperwork, which meets international animal-transport rules. Most dogs travel safely in the hold and are handed to you, or to one of our volunteers, on arrival."}, {"question": "What is a flight volunteer, and how can I help?", "answer": "If you're flying from mainland China to one of our destinations, you can help a dog reach their new family — at no cost to you. We handle the crate, paperwork, and hand-over. See our Get Involved page if you have a trip coming up."}, {"question": "My dog sometimes arrives via a transition family — what does that mean?", "answer": "Sometimes a dog flies to your country ahead of time and stays with one of our trusted transition families until you're ready to welcome them home."}, {"question": "Can I adopt in the US?", "answer": "Yes, though it's more limited. US rules since August 2024 make bringing dogs from China slow and expensive, so US placements are rarer — New York and Seattle are the most workable. Cats are much easier, as they aren't subject to the same rules. If you're in the US, just ask and we'll tell you honestly what's possible."}, {"question": "What happens if the adoption doesn't work out?", "answer": "We ask that the dog always comes back to us rather than being rehomed elsewhere — we'll talk you through all of this during the process."}, {"question": "Is there support after I bring my dog home, and can I send updates?", "answer": "Yes — we stay reachable, and we love updates! Share your dog's new life with us on Instagram. And if you're in a city where we've placed lots of dogs, we can often connect you with other adopters nearby to meet up and swap advice."}]};
 function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function answerHTML(text){
+  var lines = String(text==null?'':text).split('\n');
+  var html='', inList=false;
+  lines.forEach(function(line){
+    var t = line.trim();
+    if(t.charAt(0)==='\u2022'){
+      if(!inList){ html+='<ul>'; inList=true; }
+      html += '<li>'+esc(t.replace(/^\u2022\s*/,''))+'</li>';
+    } else {
+      if(inList){ html+='</ul>'; inList=false; }
+      if(t) html += '<p>'+esc(t)+'</p>';
+    }
+  });
+  if(inList) html+='</ul>';
+  return html;
+}
 function toggleMenu(){ var n=document.getElementById('navlinks'); var b=document.querySelector('.menu-btn'); var open=n.classList.toggle('open'); if(b) b.setAttribute('aria-expanded', open); }
 function render(data){
   var faqs = Array.isArray(data.faqs) ? data.faqs : [];
   document.getElementById('faqlist').innerHTML = faqs.map(function(f){
-    return '<div class="item"><button class="q">'+esc(f.question)+' <span class="ic">+</span></button><div class="a"><p>'+esc(f.answer)+'</p></div></div>';
+    return '<div class="item"><button class="q">'+esc(f.question)+' <span class="ic">+</span></button><div class="a"><div class="a-inner">'+answerHTML(f.answer)+'</div></div></div>';
   }).join('');
 }
 document.getElementById('faqlist').addEventListener('click', function(e){
